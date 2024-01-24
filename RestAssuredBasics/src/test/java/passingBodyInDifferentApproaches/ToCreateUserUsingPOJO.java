@@ -8,21 +8,11 @@ import static io.restassured.RestAssured.*;
 import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.HashMap;
-
-import org.json.JSONObject;
-import org.json.JSONTokener;
-
 public class ToCreateUserUsingPOJO {
 	@Test
-	public void createUser() throws FileNotFoundException {		
+	public void createUser(){		
 		
-		Create_User data = new Create_User();
-		data.setJob("Automation Engg");
-		data.setName("Harsha");
+		Create_User data = new Create_User("Harsha", "Jr QA");
 		
 		//Pre condition
 		given()
@@ -36,6 +26,6 @@ public class ToCreateUserUsingPOJO {
 		//Response validation	
 		.then()
 			.statusCode(201)
-			.log().all();		
+			.log().all();
 	}
 }

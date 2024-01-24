@@ -4,6 +4,12 @@ public class Create_User {
 
 	String name;
 	String job;
+	
+	public Create_User(String name, String job) {
+		super();
+		this.name = name;
+		this.job = job;
+	}
 
 	public String getName() {
 		return name;
@@ -19,7 +25,5 @@ public class Create_User {
 
 	public void setJob(String job) {
 		this.job = job;
-	}
-	
-	
+	}	
 }

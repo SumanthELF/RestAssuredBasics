@@ -27,7 +27,7 @@ public class ToCreateUserUsingPOJO {
 		//Pre condition
 		given()
 			.header("Content-Type","application/json")
-			.body(PayLoad.createUser())
+			.body(data)
 		
 		//Request type
 		.when()

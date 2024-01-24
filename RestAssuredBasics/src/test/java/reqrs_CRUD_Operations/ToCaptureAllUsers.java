@@ -1,4 +1,4 @@
-package reqres;
+package reqrs_CRUD_Operations;
 
 import org.testng.annotations.Test;
 import io.restassured.RestAssured;

@@ -24,23 +24,19 @@ public class ToCaptureResponseData {
 		JSONObject responseBody = new JSONObject(res.asString());
 		JSONArray users = responseBody.getJSONArray("data");
 		
-		JSONObject value = responseBody.getJSONObject("support");
-		System.out.println(value.getString("url"));
-		System.out.println(value.getString("text"));
+		boolean flag = false;
 		
-//		boolean flag = false;
-//		
-//		for(int i=0; i<users.length(); i++) {
-//			JSONObject userDetails = (JSONObject) users.get(i);
-//			String username = userDetails.getString("first_name");
-//			if(username.equalsIgnoreCase("Sumanth")) {
-//				flag = true;
-//				break;
-//			}
-//		}
-//		if(flag) {
-//			System.out.println("Sumanth is present");
-//		}else
-//			System.out.println("Sumanth is not present");
+		for(int i=0; i<users.length(); i++) {
+			JSONObject userDetails = (JSONObject) users.get(i);
+			String username = userDetails.getString("first_name");
+			if(username.equalsIgnoreCase("Sumanth")) {
+				flag = true;
+				break;
+			}
+		}
+		if(flag) {
+			System.out.println("Sumanth is present");
+		}else
+			System.out.println("Sumanth is not present");
 	}
 }

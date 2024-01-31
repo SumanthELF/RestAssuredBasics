@@ -1,5 +1,6 @@
 package requestChaining;
 
+import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 import io.restassured.http.ContentType;
@@ -9,6 +10,7 @@ import static io.restassured.RestAssured.*;
 
 import java.io.File;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class PetStore {
 
@@ -28,6 +30,10 @@ public class PetStore {
 			.post("https://petstore.swagger.io/v2/pet");
 		
 		petId = res.jsonPath().get("id");
+		
+		long timeTaken = res.timeIn(TimeUnit.MILLISECONDS);
+		System.out.println(timeTaken);
+		res.then().time(Matchers.lessThan(2000L),TimeUnit.MILLISECONDS);
 	}
 	
 	@Test()

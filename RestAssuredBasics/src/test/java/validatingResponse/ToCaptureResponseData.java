@@ -1,14 +1,15 @@
 package validatingResponse;
 
-import org.hamcrest.Matchers;
+import static io.restassured.RestAssured.given;
+
+import java.util.Random;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-
-import static io.restassured.RestAssured.*;
 
 public class ToCaptureResponseData {
 
@@ -29,14 +30,14 @@ public class ToCaptureResponseData {
 		for(int i=0; i<users.length(); i++) {
 			JSONObject userDetails = (JSONObject) users.get(i);
 			String username = userDetails.getString("first_name");
-			if(username.equalsIgnoreCase("Sumanth")) {
+			if(username.equalsIgnoreCase("Michael")) {
 				flag = true;
 				break;
 			}
 		}
 		if(flag) {
-			System.out.println("Sumanth is present");
+			System.out.println("Michael is present");
 		}else
-			System.out.println("Sumanth is not present");
+			System.out.println("Michael is not present");
 	}
 }

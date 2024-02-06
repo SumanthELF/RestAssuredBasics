@@ -9,6 +9,7 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.*;
 
 import java.io.File;
+import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -18,6 +19,7 @@ public class PetStore {
 	
 	@Test
 	public void createAPet() {
+		
 		Random random = new Random();
 		int rand = random.nextInt(1000);
 		
